@@ -5,9 +5,7 @@ import { MongoConn } from "./services/MongoConnect";
 import errorHandler from "./middleware/exceptions";
 import { PostService } from "./services/PostService";
 import { PostController } from "./controller/PostController";
-import createRouter from "./routes/routes";
-import { Post } from "./api/postSchema";
-import { Collection } from "mongoose";
+import { createRouter } from "./routes/routes";
 
 //Dotenv
 require("dotenv").config();

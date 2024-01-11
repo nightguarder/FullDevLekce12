@@ -1,6 +1,6 @@
 //Mongo Module for handling all CRUD operations
 import { ObjectId } from "mongodb";
-
+import { Schema, model } from "mongoose";
 export class PostService {
   private collection: any;
 
@@ -14,6 +14,7 @@ export class PostService {
       return console.log("New Post Created!", newPost);
     } catch (error) {
       console.error(error);
+      throw error;
     }
   }
   //*READ*
@@ -33,36 +34,39 @@ export class PostService {
       if (!post) {
         return console.log("Post not found!", post);
       }
-      return post;
+      return console.log("Found post:", post);
     } catch (error) {
       console.error(error);
+      throw error;
     }
   }
   //*UPDATE*
+  //find a matching document, updates it according to the update arg, passing any options, and returns the found document (if any) to the callback.
   async updatePost(id: string, data: any) {
     try {
-      //Use id of object in db
-      //new:true updated document is returned after the update
-      const editedPost = await this.collection.findOneAndUpdate(
+      console.log("Updating post with id:", id);
+      console.log("Data:", data);
+
+      const updatePost = await this.collection.findOneAndUpdate(
         { _id: new ObjectId(id) },
         { $set: data },
-        {
-          returnOriginal: false,
-        }
+        { returnOriginal: false } //vraceni puvodniho dokumentu
       );
-      if (!editedPost.value) {
+      if (!updatePost) {
         return console.log("Cannot edit post");
       }
-      console.log("Updated Post:", editedPost);
-      return editedPost;
+
+      console.log("Updated Post:", updatePost);
+      return updatePost;
     } catch (error) {
       console.error(error);
+      throw error;
     }
   }
   //*DELETE*
   async deletePost(id: string) {
     try {
-      const deletePost = await this.collection.findOneAndDelete({
+      const deletePost = await this.collection.findByIdAndDelete({
         _id: new ObjectId(id),
       });
       if (!deletePost.value) {
@@ -70,6 +74,7 @@ export class PostService {
       }
     } catch (error) {
       console.error(error);
+      throw error;
     }
   }
 }

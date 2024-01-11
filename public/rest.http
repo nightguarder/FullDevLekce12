@@ -1,7 +1,7 @@
 @url = http://localhost:3000
-@deletepost = 
-@changepost = 
-@singlepost = 659ee26d0b9e9ccfbf37c1c6
+@deletepost = 659ee26d0b9e9ccfbf37c1c6
+@changepost = 65a051bdfa2bf0128d08f82b
+@singlepost = 65a051bdfa2bf0128d08f82b
 @date = "{{$datetime iso8601}}"
 ### 
 //Return All blog posts
@@ -15,7 +15,7 @@ POST {{url}}/api/v1/posts HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Post 1",
+    "title": "Test post",
     "description": "First post",
     "author": "Cyril",
     "published": true
@@ -24,11 +24,15 @@ Content-Type: application/json
 ###
 //Delete
 DELETE {{url}}/api/v1/posts/{{deletepost}} HTTP/1.1
+
 ###
 //Update
-PUT {{url}}/api/v1/posts/6599b1a233bbb7cd90029ed2 HTTP/1.1
+PUT {{url}}/api/v1/posts/{{changepost}} HTTP/1.1
 Content-Type: application/json
 
 {
-  "title": "Changed title"
+  "title": "Changed title",
+  "author": "Admin",
+  "description": "Edited post",
+  "published": true
 }

@@ -9,7 +9,7 @@ export const PostschemaValidate = Joi.object({
   description: Joi.string().required(),
   author: Joi.string().required(),
   published: Joi.boolean().required(),
-  createdAt: Joi.date().iso().options({ convert: true }), //valid dates will be converted
+  createdAt: Joi.date().iso().options({ convert: true }).optional(), //valid dates will be converted
 });
 
 //creating an Interface
