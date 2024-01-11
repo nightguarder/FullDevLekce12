@@ -1,7 +1,7 @@
 @url = http://localhost:3000
-@deletepost = 659ee26d0b9e9ccfbf37c1c6
-@changepost = 65a051bdfa2bf0128d08f82b
-@singlepost = 65a051bdfa2bf0128d08f82b
+@deletepost = 65a06239fac98182b6d9b910
+@changepost = 65a06239fac98182b6d9b910
+@singlepost = 65a06239fac98182b6d9b910
 @date = "{{$datetime iso8601}}"
 ### 
 //Return All blog posts
@@ -15,7 +15,7 @@ POST {{url}}/api/v1/posts HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Test post",
+    "title": "Hello World!",
     "description": "First post",
     "author": "Cyril",
     "published": true

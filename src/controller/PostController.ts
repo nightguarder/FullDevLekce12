@@ -1,6 +1,8 @@
 import { PostService } from "../services/PostService";
 import { Request, Response } from "express";
 import { PostschemaValidate } from "../api/postSchema";
+import { Date } from "mongoose";
+import { date } from "joi";
 
 // TO use this controller create new instances in your main Express file..
 //const postServices = new CRUDService();
@@ -31,13 +33,16 @@ export class PostController {
         author: req.body.author,
         description: req.body.description,
         published: req.body.published,
+        createdAt: new Date().toISOString(), //Odpovida validaci v Joi schema
       };
+
       //Validation with Joi Schema
       const { error, value } = PostschemaValidate.validate(data);
 
       if (error) {
         return res.status(400).send(error.message);
       }
+
       //Finally call the postService to create new post with data
       const post = await this.postServices.createPost(value);
       res.status(201).send(post);
@@ -85,7 +90,7 @@ export class PostController {
     try {
       const id = req.params.id;
       await this.postServices.deletePost(id);
-      res.send("Post deleted succesfully.");
+      res.status(200).send("Post deleted succesfully.");
     } catch (error) {
       console.error("Uh oh! Unknown error.", error);
       return res.status(500);

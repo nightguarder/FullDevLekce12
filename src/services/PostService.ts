@@ -66,12 +66,13 @@ export class PostService {
   //*DELETE*
   async deletePost(id: string) {
     try {
-      const deletePost = await this.collection.findByIdAndDelete({
+      const deletePost = await this.collection.findOneAndDelete({
         _id: new ObjectId(id),
       });
-      if (!deletePost.value) {
-        return console.log("Post not found!");
+      if (!deletePost || !deletePost.value) {
+        return console.log("Post not found.");
       }
+      console.log("Post deleted.");
     } catch (error) {
       console.error(error);
       throw error;

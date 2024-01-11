@@ -1,7 +1,7 @@
 import express from "express";
 import helmet from "helmet";
 import cors from "cors";
-import { MongoConn } from "./services/MongoConnect";
+import { MongoConnect } from "./services/MongoConnect";
 import errorHandler from "./middleware/exceptions";
 import { PostService } from "./services/PostService";
 import { PostController } from "./controller/PostController";
@@ -11,6 +11,8 @@ import { createRouter } from "./routes/routes";
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || "127.0.0.1";
+const URI = process.env.MONGO_URI || "mongo://";
+const DBNAME = process.env.DB_NAME || "database";
 
 //Main function...
 async function run() {
@@ -20,27 +22,31 @@ async function run() {
   app.use(helmet());
   app.use(cors());
 
-  //DB connection
-  let mongo;
+  //DB connection config
   try {
-    mongo = await MongoConn.connectDB();
-    console.log("Successfully connected to MongoDB!");
+    const mongoConnection = new MongoConnect(URI, DBNAME);
+    await mongoConnection.connectDB();
+    console.log("Succesfully connected to MongoDB!");
+    console.log("Using database:", DBNAME);
+
+    const postCollection = mongoConnection.getCollection("posts");
+    //Services & Controller
+    const PostServices = new PostService(postCollection);
+    const postController = new PostController(PostServices);
+
+    //Routing
+    const postRouter = await createRouter(postController);
+    app.use("/api/v1/posts", postRouter);
   } catch (error) {
-    console.error("Connection to MongoDB failed.", error);
+    console.error(
+      "Starting the server failed. Problem with configuration occured.",
+      error
+    );
     process.exit(1); //Exiting now
   }
 
-  // Get the 'blog' collection
-  const db = mongo.db("blog");
-  const collection = db.collection("posts");
   //Else
-  //Services & Controllers instance
-  const PostServices = new PostService(collection);
-  const postController = new PostController(PostServices);
-
-  //Routing
-  const postRouter = await createRouter(postController);
-  app.use("/api/v1/posts", postRouter);
+  //Services & Controller
 
   app.listen(PORT, () => {
     console.log(`Server is running on port http://${HOST}:${PORT}.`);
