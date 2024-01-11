@@ -1,5 +1,15 @@
 # FullDevLekce12
 
+# Domácí úkol 12
+
+- Deadline: 18.1.2024 23:59
+- Počet bodů: 15
+
+**Cílem tohoto úkolu je dockerizovat aplikaci a nastavit CI/CD**
+
+- [x] vytvoř Dockerfile
+- [ ] nastav GithubAction workflow pro build kontejneru a push do GHCR
+
 # Project start
 
 1. In your preferred terminal run:`docker compose up`
