@@ -1,2 +1,2 @@
 # FullDevLekce12
-Deployment web aplikace s Kubernetes
+Nastavení Guthub Actions
