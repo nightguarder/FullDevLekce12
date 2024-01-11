@@ -1,5 +1,10 @@
 # FullDevLekce12
 
+# Project start
+
+1. In your preferred terminal run:`docker compose up`
+2. Back in project run: `npm run server`
+
 ## --Save-dev Dependecies
 
 - Run these commands after cloning the repository:
@@ -11,5 +16,10 @@
 - add this to rules
 
 ```
+//Custom added rules
+    "@typescript-eslint/no-unused-vars": "warn",
+    // to enforce using type for object type definitions, can be type or interface
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/no-explicit-any": "off"
 
 ```
