@@ -13,9 +13,8 @@
 
 ## Notes
 
-- Following this tutorial: [![Workflow tutorial overview](https://img.youtube.com/vi/aZzV6X7XhyI/0.jpg)](https://www.youtube.com/watch?v=aZzV6X7XhyI)
-
-![Workflow simple overview](https://www.youtube.com/watch?v=aZzV6X7XhyI)
+- Following this tutorial:
+  [![Workflow tutorial overview](https://img.youtube.com/vi/aZzV6X7XhyI/0.jpg)](https://www.youtube.com/watch?v=aZzV6X7XhyI)
 
 - The Workflow [docker-basic-workflow.yml](.github/workflows/docker-basic-workflow.yml) is doing simple jobs with steps:
 
