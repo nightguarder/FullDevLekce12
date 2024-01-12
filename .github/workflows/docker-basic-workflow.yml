@@ -13,14 +13,14 @@ on:
 jobs:
     #NEW JOB: (START) ##########################################################
     setup:
-        name: Setup Node.js and install dependencies with pnpm
+        name: Setup Node.js and install dependencies
         runs-on: ubuntu-latest
         steps:
            - name: Checkout code
              uses: actions/checkout@v3
 
            - name: Setup Node.js
-             uses: actions/setup-node@v3
+             uses: actions/setup-node@v2
              with:
                node-version: 16
 
