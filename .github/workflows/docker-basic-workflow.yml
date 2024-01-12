@@ -9,13 +9,35 @@ on:
             - main
     pull_request:
 
+
 jobs:
+    #NEW JOB: (START) ##########################################################
+    setup:
+        name: Setup Node.js and install dependencies with pnpm
+        runs-on: ubuntu-latest
+        steps:
+           - name: Checkout code
+             uses: actions/checkout@v3
+
+           - name: Setup Node.js
+             uses: actions/setup-node@v3
+             with:
+               node-version: 16
+
+           - name: Setup pnpm
+             uses: pnpm/action-setup@v3
+             with:
+              version: latest
+
+           - name: Install dependencies
+             run: pnpm install
+    #NEW JOB: (END) ############################################################
+    #NEW JOB: (START) ##########################################################          
     build-image:
-        name: Build Images and install dependencies
+        name: Build Images 
         runs-on: ubuntu-latest
         steps:
     
-    #NEW: (START) ##########################################################
     # Multiplatform build
          # - name: Set up QEMU
           #  uses: docker/setup-qemu-action@v3
@@ -49,15 +71,19 @@ jobs:
               username: ${{ github.actor }}
               password: ${{ secrets.GITHUB_TOKEN }}
         #Checkout your repository so this  workflow can access its contents
+        #///The following actions uses node12 which is deprecated and will be forced to run on node16: actions/checkout@v2
+        #use actions/checkout@v3 instead
           - name: Checkout code
-            uses: actions/checkout@v2
+            uses: actions/checkout@v3
+            with:
+                node-version: 16
           - name: Build and push MongoDB image
             run: |
               docker-compose build mongo
               docker tag mongo:latest ${{ secrets.DOCKERHUB_USERNAME }}/mongo:latest
               docker push ${{ secrets.DOCKERHUB_USERNAME }}/mongo:latest
-    #NEW: (END) ############################################################
+    #NEW JOB: (END) ############################################################
 
-    #NEW: (START) ##########################################################
+    #NEW JOB: (START) ##########################################################
 
     
