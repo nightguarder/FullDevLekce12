@@ -44,6 +44,7 @@ jobs:
         name: Build Images 
         runs-on: ubuntu-latest
         steps:
+            #Always run the check before other steps..
           - name: Checkout code
             uses: actions/checkout@v3
         
