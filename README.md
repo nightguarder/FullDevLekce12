@@ -9,7 +9,7 @@
 
 - [x] vytvoř Dockerfile
 - [x] nastav GithubAction workflow pro build kontejneru a push do GHCR (Github Container Registry)
-- [ ] _Extra_ Add Docker QEMU + caching
+- [x] _Extra_ Add Docker QEMU
 
 ## Notes
 
@@ -17,11 +17,11 @@ Following this tutorial:
 
 [![Workflow tutorial overview](https://img.youtube.com/vi/aZzV6X7XhyI/0.jpg)](https://www.youtube.com/watch?v=aZzV6X7XhyI)
 
-- The Workflow [docker-basic-workflow.yml](.github/workflows/docker-basic-workflow.yml) is doing simple jobs with steps:
+- The Workflow [dockerfile-workflow.yml](.github/workflows/docker-basic-workflow.yml) is doing simple jobs with steps:
 
 1. Install dependencies
 2. Docker QEMU
-3. Build Docker Image
+3. Build Docker Image using Dockerfile with passed args
 
 **Workflow yaml commands:**
 
