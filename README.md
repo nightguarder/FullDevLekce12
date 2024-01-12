@@ -9,9 +9,9 @@
 
 - [x] vytvoř Dockerfile
 - [x] nastav GithubAction workflow pro build kontejneru a push do GHCR (Github Container Registry)
-
+- [ ] _Extra_ Docker QEMU
 - Following this tutorial: [Automation with Docker for CI Workflows](https://github.com/BretFisher/docker-ci-automation)
-- The [docker-basic-workflow.yml](.github/workflows/docker-basic-workflow.yml) is doing simple jobs but i would point out that it also uses Docker QEMU (emulation) to build the containers for multiplatform (M1 Macs, Linux...);
+- The [docker-basic-workflow.yml](.github/workflows/docker-basic-workflow.yml) is doing simple jobs with steps: 1. Install dependencies 2. Docker QEMU 3. Build Docker Image
 
 **Workflow yaml commands:**
 
