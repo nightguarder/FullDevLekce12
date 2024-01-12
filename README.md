@@ -13,7 +13,7 @@
 
 ## Notes
 
-- Following this tutorial: [Automation with Docker for CI Workflows](https://github.com/BretFisher/docker-ci-automation)
+- Following this tutorial: [![Workflow tutorial overview](https://img.youtube.com/vi/aZzV6X7XhyI/0.jpg)](https://www.youtube.com/watch?v=aZzV6X7XhyI)
 
 ![Workflow simple overview](https://www.youtube.com/watch?v=aZzV6X7XhyI)
 
