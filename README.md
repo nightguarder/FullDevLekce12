@@ -11,7 +11,11 @@
 - [x] nastav GithubAction workflow pro build kontejneru a push do GHCR (Github Container Registry)
 - [ ] _Extra_ Docker QEMU
 - Following this tutorial: [Automation with Docker for CI Workflows](https://github.com/BretFisher/docker-ci-automation)
-- The [docker-basic-workflow.yml](.github/workflows/docker-basic-workflow.yml) is doing simple jobs with steps: 1. Install dependencies 2. Docker QEMU 3. Build Docker Image
+- The Workflow [docker-basic-workflow.yml](.github/workflows/docker-basic-workflow.yml) is doing simple jobs with steps:
+
+1. Install dependencies
+2. Docker QEMU
+3. Build Docker Image
 
 **Workflow yaml commands:**
 
