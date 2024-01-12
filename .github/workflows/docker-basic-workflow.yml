@@ -82,8 +82,13 @@ jobs:
             uses: actions/checkout@v3
             with:
                 node-version: 16
+                #1. pull mongo latest image before build No such image: mongo:latest
+                #2. Run docker.compose.yaml file
+                #3. tag the built docker image
+                #4. push the built image to docker hub
           - name: Build and push MongoDB image
             run: |
+              docker pull mongo:latest
               docker-compose build mongo
               docker tag mongo:latest ${{ secrets.DOCKERHUB_USERNAME }}/mongo:latest
               docker push ${{ secrets.DOCKERHUB_USERNAME }}/mongo:latest
