@@ -1,0 +1,7 @@
+#Workflow is based on: https://github.com/BretFisher/docker-build-workflow.git
+#But I have edited it for my needs.
+#wokrflow will start everytime push & commit was made to main release branch and also start everytime if pull_request is made to main.
+
+
+
+    
