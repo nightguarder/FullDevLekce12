@@ -1,6 +1,6 @@
 # FullDevLekce12
 
-# Domácí úkol 12
+## Domácí úkol 12
 
 - Deadline: 18.1.2024 23:59
 - Počet bodů: 15
@@ -9,8 +9,14 @@
 
 - [x] vytvoř Dockerfile
 - [x] nastav GithubAction workflow pro build kontejneru a push do GHCR (Github Container Registry)
-- [ ] _Extra_ Docker QEMU
+- [ ] _Extra_ Add Docker QEMU + caching
+
+## Notes
+
 - Following this tutorial: [Automation with Docker for CI Workflows](https://github.com/BretFisher/docker-ci-automation)
+
+![Workflow simple overview](https://www.youtube.com/watch?v=aZzV6X7XhyI)
+
 - The Workflow [docker-basic-workflow.yml](.github/workflows/docker-basic-workflow.yml) is doing simple jobs with steps:
 
 1. Install dependencies
