@@ -8,7 +8,7 @@ on:
         branches:
             - main
     pull_request:
-#ENV Secrets...
+
 env:
     MONGO_INITDB_ROOT_USERNAME: ${{ secrets.MONGO_INITDB_ROOT_USERNAME }}
     MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGO_INITDB_ROOT_PASSWORD }}
