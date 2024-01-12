@@ -17,12 +17,12 @@ jobs:
     
     #NEW: (START) ##########################################################
     # Multiplatform build
-          - name: Set up QEMU
-            uses: docker/setup-qemu-action@v3
+         # - name: Set up QEMU
+          #  uses: docker/setup-qemu-action@v3
 
     #Default builder
-          - name: Set up Docker Buildx
-            uses: docker/setup-buildx-action@v3
+         # - name: Set up Docker Buildx
+          #  uses: docker/setup-buildx-action@v3
 
     # Login top Docker Hub account with secrets
           - name: Login to Docker Hub
