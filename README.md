@@ -8,7 +8,7 @@
 **Cílem tohoto úkolu je dockerizovat aplikaci a nastavit CI/CD**
 
 - [x] vytvoř Dockerfile
-- [ ] nastav GithubAction workflow pro build kontejneru a push do GHCR (Github Container Registry)
+- [x] nastav GithubAction workflow pro build kontejneru a push do GHCR (Github Container Registry)
 
 - Following this tutorial: [Automation with Docker for CI Workflows](https://github.com/BretFisher/docker-ci-automation)
 - The [docker-basic-workflow.yml](.github/workflows/docker-basic-workflow.yml) is doing simple jobs but i would point out that it also uses Docker QEMU (emulation) to build the containers for multiplatform (M1 Macs, Linux...);
@@ -21,6 +21,10 @@
 - **steps** specifies a list of steps to run in a job.
 - **env** defines environment variables that will be used in the workflow.
 - **runs-on** specifies the type of runner to use for a job.
+
+![Workflow Fails](public/workflow-fail.png)
+
+- [Context access might be invalid](https://github.com/github/vscode-github-actions/issues/222)
 
 # Project start
 
