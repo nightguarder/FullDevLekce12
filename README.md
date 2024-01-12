@@ -19,11 +19,15 @@ Following this tutorial:
 
 - The Workflow [dockerfile-workflow.yml](.github/workflows/docker-basic-workflow.yml) is doing simple jobs with steps:
 
-1. Install dependencies
-2. Docker QEMU
-3. Build Docker Image using Dockerfile with passed args
+1. Checkout code and login to GHCR
+2. Install dependencies
+3. Docker QEMU
+4. Build Docker Image using Dockerfile with passed args
+5. Publish MongoDB tag to DockerHub
 
-**Workflow yaml commands:**
+![DockerHub](public/docker-hub.png)
+
+## **Workflow yaml commands:**
 
 - **name** defines a unique name for the workflow.
 - **on** specifies the trigger for the workflow, such as when a push is made to the repository or a pull request is opened.
