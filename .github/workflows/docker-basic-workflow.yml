@@ -1,7 +1,43 @@
 #Workflow is based on: https://github.com/BretFisher/docker-build-workflow.git
 #But I have edited it for my needs.
 #wokrflow will start everytime push & commit was made to main release branch and also start everytime if pull_request is made to main.
+name: Docker Build with QEMU and Mongo
 
+on:
+    push:
+        branches:
+            - main
+    pull_request:
 
+jobs:
+    build-image:
+        name: Build Images
+        runs-on: ubuntu-latest
+        steps:
+    
+    #NEW: (START) ##########################################################
+          - name: Set up QEMU
+            uses: docker/setup-qemu-action@v3
+    
+          - name: Set up Docker Buildx
+            uses: docker/setup-buildx-action@v3
+                
+          - name: Login to Docker Hub
+            uses: docker/login-action@v3
+            with:
+              username: ${{ secrets.DOCKERHUB_USERNAME }}
+              password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+          - name: Docker build
+            uses: docker/build-push-action@v5
+            with:
+              push: ${{ github.event_name != 'pull_request' }}
+              tags: bretfisher/docker-ci-automation:03
+              cache-from: type=gha
+              cache-to: type=gha,mode=max
+              platforms: linux/amd64,linux/arm64,linux/arm/v7
+    #NEW: (END) ############################################################
+    
+    #NEW: (START) ##########################################################
 
     
