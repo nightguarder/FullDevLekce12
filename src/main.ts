@@ -5,7 +5,7 @@ import { MongoConnect } from "./services/MongoConnect";
 import errorHandler from "./middleware/exceptions";
 import { PostService } from "./services/PostService";
 import { PostController } from "./controller/PostController";
-import { createRouter } from "./routes/routes";
+import { PostRouter } from "./routes/routes";
 
 //Dotenv
 require("dotenv").config();
@@ -35,7 +35,7 @@ async function run() {
     const postController = new PostController(PostServices);
 
     //Routing
-    const postRouter = await createRouter(postController);
+    const postRouter = await PostRouter(postController);
     app.use("/api/v1/posts", postRouter);
   } catch (error) {
     console.error(

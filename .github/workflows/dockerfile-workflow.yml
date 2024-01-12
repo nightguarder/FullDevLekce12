@@ -10,7 +10,6 @@ env:
     MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGO_INITDB_ROOT_PASSWORD }}
     DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
     DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-    GHR_TOKEN: ${{secrets.GITHUB_TOKEN}}
           
 jobs:
     setup:
@@ -22,7 +21,7 @@ jobs:
              with:
               registry: ghcr.io
               username: ${{ github.actor }}
-              password: ${{ secrets.GHR_TOKEN }}
+              password: ${{ secrets.GITHUB_TOKEN }}
            - name: Checkout code
              uses: actions/checkout@v3
 

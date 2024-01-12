@@ -57,7 +57,7 @@ jobs:
             with:
               registry: ghcr.io
               username: ${{ github.actor }}
-              password: ${{ secrets.GHR_TOKEN }}
+              password: ${{ secrets.GITHUB_TOKEN }}
         #Checkout your repository so this  workflow can access its contents
         #///The following actions uses node12 which is deprecated and will be forced to run on node16: actions/checkout@v2
         #use actions/checkout@v3 instead

@@ -1,11 +1,13 @@
 import express from "express";
 
 import { PostController } from "../controller/PostController";
+import { UserController } from "../controller/UserController";
 
 //Router musi byt Assynchroni jinak  at __awaiter (/Users/cyrils/Developer/Projects/RobotDreams/FullDevLekce12/src/controller/PostController.ts:4:12)
 
-//Pro pouziti vytvor instanci v main.ts..
-export async function createRouter(controller: PostController) {
+////Pro pouziti vytvor instanci v main.ts..
+//Router pro PostController
+export async function PostRouter(controller: PostController) {
   const router = express.Router();
 
   //add new post
@@ -25,3 +27,4 @@ export async function createRouter(controller: PostController) {
 
   return router;
 }
+export function
