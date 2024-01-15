@@ -22,7 +22,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
            - name: Checkout code
-             uses: actions/checkout@v3
+             uses: actions/checkout@v4
 
            - name: Setup Node.js
              uses: actions/setup-node@v3
@@ -60,9 +60,9 @@ jobs:
               password: ${{ secrets.GITHUB_TOKEN }}
         #Checkout your repository so this  workflow can access its contents
         #///The following actions uses node12 which is deprecated and will be forced to run on node16: actions/checkout@v2
-        #use actions/checkout@v3 instead
+        #use actions/checkout@v4 instead
           - name: Checkout code
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
             with:
                 node-version: 16
                 #1. pull mongo latest image before build No such image: mongo:latest
