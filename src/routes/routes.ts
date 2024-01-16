@@ -27,4 +27,6 @@ export async function PostRouter(controller: PostController) {
 
   return router;
 }
-export function
+export async function UserRouter(controller: UserController) {
+  //Routing pro Create User, Delete User atd.
+}
